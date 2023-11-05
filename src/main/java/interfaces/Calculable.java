@@ -10,5 +10,5 @@ package interfaces;
  */
 public interface Calculable {
 
-    double calcularMonto(int distancia);
+    abstract double calculateAmount(int distancia);
 }

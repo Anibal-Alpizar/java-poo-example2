@@ -4,20 +4,19 @@
  */
 package classes;
 
-import enums.TransportType;
 import interfaces.Calculable;
 
 /**
  *
  * @author anibal
  */
-public class Transport implements Calculable {
+public abstract class Transport implements Calculable {
 
     private String code;
-    private TransportType type;
+    private String type;
     private int baseRate;
 
-    public Transport(String code, TransportType type, int baseRate) {
+    public Transport(String code, String type, int baseRate) {
         this.code = code;
         this.type = type;
         this.baseRate = baseRate;
@@ -31,11 +30,11 @@ public class Transport implements Calculable {
         this.code = code;
     }
 
-    public TransportType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(TransportType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -45,11 +44,6 @@ public class Transport implements Calculable {
 
     public void setBaseRate(int baseRate) {
         this.baseRate = baseRate;
-    }
-
-    @Override
-    public double calcularMonto(int distancia) {
-        return 0.0;
     }
 
 }

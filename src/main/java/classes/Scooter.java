@@ -4,8 +4,6 @@
  */
 package classes;
 
-import enums.TransportType;
-
 /**
  *
  * @author anibal
@@ -14,7 +12,7 @@ public class Scooter extends Transport {
 
     private String color;
 
-    public Scooter(String code, TransportType type, String color) {
+    public Scooter(String code, String type, String color) {
         super(code, type, 2000); // La tarifa base para scooters es 2000
         this.color = color;
     }
@@ -28,7 +26,7 @@ public class Scooter extends Transport {
     }
 
     @Override
-    public double calcularMonto(int distancia) {
+    public double calculateAmount(int distancia) {
         double porcentaje = 0.0;
 
         if (distancia >= 0 && distancia <= 1000) {
