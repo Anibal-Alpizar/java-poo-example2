@@ -4,16 +4,15 @@
  */
 package classes;
 
-import enums.TransportType;
-
 /**
  *
  * @author anibal
  */
 public class Skates extends Transport {
+
     private int wheelCount;
 
-    public Skates(String code, TransportType type, int wheelCount) {
+    public Skates(String code, String type, int wheelCount) {
         super(code, type, 1500); // La tarifa base para patines es 1500
         this.wheelCount = wheelCount;
     }
@@ -27,7 +26,7 @@ public class Skates extends Transport {
     }
 
     @Override
-    public double calcularMonto(int distancia) {
+    public double calculateAmount(int distancia) {
         double porcentaje = 0.0;
 
         if (distancia >= 0 && distancia <= 1000) {

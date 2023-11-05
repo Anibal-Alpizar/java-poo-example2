@@ -4,7 +4,6 @@
  */
 package classes;
 
-import enums.TransportType;
 
 /**
  *
@@ -14,7 +13,7 @@ public class Bicycle extends Transport {
 
     private int gearCount;
 
-    public Bicycle(String code, TransportType type, int gearCount) {
+    public Bicycle(String code, String type, int gearCount) {
         super(code, type, 3000); // Llama al constructor de la clase base con los parámetros requeridos
         this.gearCount = gearCount;
     }
@@ -28,7 +27,7 @@ public class Bicycle extends Transport {
     }
 
     @Override
-    public double calcularMonto(int distancia) {
+    public double calculateAmount(int distancia) {
         double porcentaje = 0.0;
 
         if (distancia >= 0 && distancia <= 1000) {
