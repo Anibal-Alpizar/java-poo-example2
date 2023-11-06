@@ -14,7 +14,7 @@ public class Bicycle extends Transport {
     private int gearCount;
 
     public Bicycle(String code, String type, int gearCount) {
-        super(code, type, 3000); // Llama al constructor de la clase base con los parámetros requeridos
+        super(code, type, 3000); 
         this.gearCount = gearCount;
     }
 

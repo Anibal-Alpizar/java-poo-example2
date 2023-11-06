@@ -13,7 +13,7 @@ public class Skates extends Transport {
     private int wheelCount;
 
     public Skates(String code, String type, int wheelCount) {
-        super(code, type, 1500); // La tarifa base para patines es 1500
+        super(code, type, 1500); 
         this.wheelCount = wheelCount;
     }
 
