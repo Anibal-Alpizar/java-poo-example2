@@ -55,12 +55,12 @@ public class frmTransport extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(133, 241, 120, 25);
         getContentPane().add(txtCode);
-        txtCode.setBounds(308, 151, 121, 22);
+        txtCode.setBounds(310, 150, 121, 22);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel4.setText("Transport Code:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(166, 151, 124, 25);
+        jLabel4.setBounds(130, 150, 124, 25);
 
         cmbTransportType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bicycle", "Scooter", "Skates" }));
         cmbTransportType.addItemListener(new java.awt.event.ItemListener() {
@@ -86,7 +86,7 @@ public class frmTransport extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(590, 100, 30, 227);
+        jSeparator1.setBounds(580, 120, 30, 227);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
