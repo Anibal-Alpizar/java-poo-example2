@@ -1,0 +1,4 @@
+classes.Scooter@1c2ee4df
+Código: 003, Tipo: Scooter, Tarifa Base: 2000, Color: 9
+Código: 90, Tipo: Scooter, Tarifa Base: 2000, Color: red
+Código: , Tipo: Scooter, Tarifa Base: 2000, Color: 
