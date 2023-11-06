@@ -4,6 +4,8 @@
 
 package com.mycompany.java.poo;
 
+//import gui.frmPrincipal;
+
 /**
  *
  * @author anibal
@@ -11,6 +13,7 @@ package com.mycompany.java.poo;
 public class JavaPoo {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       //frmPrincipal principal = new frmPrincipal();
+       // principal.setVisible(true);
     }
 }
