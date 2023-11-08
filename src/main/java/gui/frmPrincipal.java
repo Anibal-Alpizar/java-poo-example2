@@ -76,7 +76,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmPrincipalTransport frmTransport = new frmPrincipalTransport();
         frmTransport.setVisible(true);
         frmTransport.setLocationRelativeTo(null);
-        
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
