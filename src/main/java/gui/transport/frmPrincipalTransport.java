@@ -27,7 +27,8 @@ public class frmPrincipalTransport extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        btnShowAll = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnShowAll1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,10 +39,17 @@ public class frmPrincipalTransport extends javax.swing.JFrame {
             }
         });
 
-        btnShowAll.setText("Show All Transports");
-        btnShowAll.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete Transports");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowAllActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnShowAll1.setText("Show All Transports");
+        btnShowAll1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAll1ActionPerformed(evt);
             }
         });
 
@@ -52,36 +60,56 @@ public class frmPrincipalTransport extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnShowAll, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(271, Short.MAX_VALUE)
+                    .addComponent(btnShowAll1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(266, 266, 266)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(185, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnShowAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
-                .addGap(166, 166, 166))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(195, 195, 195)
+                    .addComponent(btnShowAll1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(156, 156, 156)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      frmCreate frmCreate = new frmCreate();
-      frmCreate.setVisible(true);
-      frmCreate.setLocationRelativeTo(null);
-      this.dispose();
+        frmCreate frmCreate = new frmCreate();
+        frmCreate.setVisible(true);
+        frmCreate.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
-        frmgetAll frmAll = new frmgetAll();
-        frmAll.setVisible(true);
-        frmAll.setLocationRelativeTo(null);
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        frmDelete frmDelete = new frmDelete();
+        frmDelete.setVisible(true);
+        frmDelete.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnShowAllActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnShowAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAll1ActionPerformed
+        frmgetAll frmgetAll = new frmgetAll();
+        frmgetAll.setVisible(true);
+        frmgetAll.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnShowAll1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,7 +147,8 @@ public class frmPrincipalTransport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnShowAll;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnShowAll1;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
