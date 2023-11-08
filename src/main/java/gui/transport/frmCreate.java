@@ -182,11 +182,11 @@ public class frmCreate extends javax.swing.JFrame {
         String value = txtChange.getText();
 
         switch (selectedTransportType) {
-            case "Bicicleta" ->
+            case "Bicycle" ->
                 newTransport = new Bicycle(code, selectedTransportType, Integer.parseInt(value));
             case "Scooter" ->
                 newTransport = new Scooter(code, selectedTransportType, value);
-            case "Patines" ->
+            case "Skates" ->
                 newTransport = new Skates(code, selectedTransportType, Integer.parseInt(value));
             default ->
                 newTransport = null;

@@ -4,7 +4,6 @@
  */
 package classes;
 
-
 /**
  *
  * @author anibal
@@ -14,7 +13,7 @@ public class Bicycle extends Transport {
     private int gearCount;
 
     public Bicycle(String code, String type, int gearCount) {
-        super(code, type, 3000); 
+        super(code, type, 3000);
         this.gearCount = gearCount;
     }
 
