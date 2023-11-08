@@ -13,7 +13,7 @@ public class Skates extends Transport {
     private int wheelCount;
 
     public Skates(String code, String type, int wheelCount) {
-        super(code, type, 1500); 
+        super(code, type, 1500);
         this.wheelCount = wheelCount;
     }
 
@@ -42,5 +42,10 @@ public class Skates extends Transport {
         // Realizar el cálculo basado en la tarifa base y el porcentaje
         double monto = getBaseRate() * porcentaje;
         return monto;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + ", cantidad de ruedas: " + getWheelCount();
     }
 }

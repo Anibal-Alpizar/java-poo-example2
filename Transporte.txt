@@ -6,3 +6,6 @@ Código: 008, Tipo: Scooter, Tarifa Base: 2000, Color: blue
 Código: 9, Tipo: Scooter, Tarifa Base: 2000, Color: 90
 Código: , Tipo: Scooter, Tarifa Base: 2000, Color: 
 classes.Bicycle@48b36ea3
+Código: 90, Tipo: Bicycle, Tarifa Base: 3000 , 3
+Código: 99, Tipo: Scooter, Tarifa Base: 2000, Color: blue
+Código: 777, Tipo: Skates, Tarifa Base: 1500, cantidad de ruedas: 4

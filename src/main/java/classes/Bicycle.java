@@ -43,4 +43,9 @@ public class Bicycle extends Transport {
         double monto = getBaseRate() * porcentaje;
         return monto;
     }
+
+    @Override
+    public String toString() {
+        return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + " , " + getGearCount();
+    }
 }
