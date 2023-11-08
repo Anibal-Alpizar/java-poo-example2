@@ -8,7 +8,9 @@ import classes.Bicycle;
 import classes.Scooter;
 import classes.Skates;
 import classes.Transport;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -171,15 +173,21 @@ public class frmCreate extends javax.swing.JFrame {
             double price = 0.0;
 
             // Determina el precio basado en el tipo de transporte seleccionado
-            if (selectedTransportType.equals("Bicycle")) {
-                price = 3000.0; // Precio de una bicicleta
-                lblChange.setText("Gear Count");
-            } else if (selectedTransportType.equals("Scooter")) {
-                price = 2000.0; // Precio de un scooter
-                lblChange.setText("Color");
-            } else if (selectedTransportType.equals("Skates")) {
-                price = 1500.0; // Precio de patines
-                lblChange.setText("Wheel Count");
+            switch (selectedTransportType) {
+                case "Bicycle":
+                    price = 3000.0; // Precio de una bicicleta
+                    lblChange.setText("Gear Count");
+                    break;
+                case "Scooter":
+                    price = 2000.0; // Precio de un scooter
+                    lblChange.setText("Color");
+                    break;
+                case "Skates":
+                    price = 1500.0; // Precio de patines
+                    lblChange.setText("Wheel Count");
+                    break;
+                default:
+                    break;
             }
 
             txtPrice.setText(String.valueOf(price));
@@ -194,37 +202,80 @@ public class frmCreate extends javax.swing.JFrame {
         String selectedTransportType = cmbTransportType.getSelectedItem().toString();
         String value = txtChange.getText();
 
-        switch (selectedTransportType) {
-            case "Bicycle" ->
-                newTransport = new Bicycle(code, selectedTransportType, Integer.parseInt(value));
-            case "Scooter" ->
-                newTransport = new Scooter(code, selectedTransportType, value);
-            case "Skates" ->
-                newTransport = new Skates(code, selectedTransportType, Integer.parseInt(value));
-            default ->
-                newTransport = null;
+        // Verificar si el código ya existe en el archivo "Transporte.txt"
+        boolean codeExists = false;
+        ArrayList<String> lines = new ArrayList<>();
 
+        try {
+            FileReader fileReader = new FileReader("Transporte.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.startsWith("Código: " + code)) {
+                    codeExists = true;
+                    // Actualizar la línea con los nuevos datos en lugar de agregarla
+                    line = "Código: " + code + ", Tipo: " + selectedTransportType + ", Tarifa Base: " + value;
+                }
+                lines.add(line);
+            }
+
+            bufferedReader.close();
+            fileReader.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error al verificar el código en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
         }
 
-        if (newTransport != null) {
+        if (!codeExists) {
+            switch (selectedTransportType) {
+                case "Bicycle" ->
+                    newTransport = new Bicycle(code, selectedTransportType, Integer.parseInt(value));
+                case "Scooter" ->
+                    newTransport = new Scooter(code, selectedTransportType, value);
+                case "Skates" ->
+                    newTransport = new Skates(code, selectedTransportType, Integer.parseInt(value));
+                default ->
+                    newTransport = null;
+            }
 
+            if (newTransport != null) {
+                try {
+                    lines.add(newTransport.toString());
+                    FileWriter fileWriter = new FileWriter("Transporte.txt");
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+                    for (String updatedLine : lines) {
+                        bufferedWriter.write(updatedLine);
+                        bufferedWriter.newLine();
+                    }
+
+                    bufferedWriter.close();
+                    fileWriter.close();
+                    JOptionPane.showMessageDialog(this, "Transporte agregado.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Error al guardar el transporte en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            // Código existente, realizar actualización
             try {
-                FileWriter fileWriter = new FileWriter("Transporte.txt", true);
+                FileWriter fileWriter = new FileWriter("Transporte.txt");
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-                String transportData = newTransport.toString();
-                bufferedWriter.write(transportData);
-                bufferedWriter.newLine();
+                for (String updatedLine : lines) {
+                    bufferedWriter.write(updatedLine);
+                    bufferedWriter.newLine();
+                }
 
                 bufferedWriter.close();
                 fileWriter.close();
-                JOptionPane.showMessageDialog(this, "Ready.", "Succefully", JOptionPane.OK_OPTION);
-
+                JOptionPane.showMessageDialog(this, "Transporte actualizado.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error al guardar el transporte en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al actualizar el transporte en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
                 ex.printStackTrace();
             }
-
         }
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
