@@ -46,6 +46,6 @@ public class Bicycle extends Transport {
 
     @Override
     public String toString() {
-        return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + " , " + getGearCount();
+        return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + " gearCount: " + getGearCount();
     }
 }
