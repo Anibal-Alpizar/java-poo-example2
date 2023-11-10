@@ -172,22 +172,23 @@ public class frmCreate extends javax.swing.JFrame {
             String selectedTransportType = cmbTransportType.getSelectedItem().toString();
             double price = 0.0;
 
-            // Determina el precio basado en el tipo de transporte seleccionado
-            switch (selectedTransportType) {
-                case "Bicycle":
-                    price = 3000.0; // Precio de una bicicleta
-                    lblChange.setText("Gear Count");
-                    break;
-                case "Scooter":
-                    price = 2000.0; // Precio de un scooter
-                    lblChange.setText("Color");
-                    break;
-                case "Skates":
-                    price = 1500.0; // Precio de patines
-                    lblChange.setText("Wheel Count");
-                    break;
-                default:
-                    break;
+            if (null != selectedTransportType) {
+                switch (selectedTransportType) {
+                    case "Bicycle" -> {
+                        price = 3000.0;
+                        lblChange.setText("Gear Count");
+                    }
+                    case "Scooter" -> {
+                        price = 2000.0;
+                        lblChange.setText("Color");
+                    }
+                    case "Skates" -> {
+                        price = 1500.0;
+                        lblChange.setText("Wheel Count");
+                    }
+                    default -> {
+                    }
+                }
             }
 
             txtPrice.setText(String.valueOf(price));
