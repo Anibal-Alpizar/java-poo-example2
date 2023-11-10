@@ -1,1 +1,4 @@
-Código: 02, Tipo: Scooter, Tarifa Base: 2000, Color: red
+Código: 02, Tipo: Scooter, Tarifa Base: green
+Código: 090, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 9
+Código: 090, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 9
+Código: 090, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 9
