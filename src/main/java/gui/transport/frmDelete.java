@@ -104,57 +104,57 @@ public class frmDelete extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
-    try {
-        FileReader fileReader = new FileReader("Transporte.txt");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
+        try {
+            FileReader fileReader = new FileReader("Transporte.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
 
-        while ((line = bufferedReader.readLine()) != null) {
-            // Agregar cada línea del archivo al modelo de lista
-            listModel.addElement(line);
+            while ((line = bufferedReader.readLine()) != null) {
+                // Agregar cada línea del archivo al modelo de lista
+                listModel.addElement(line);
+            }
+
+            bufferedReader.close();
+            fileReader.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar los datos del archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
         }
 
-        bufferedReader.close();
-        fileReader.close();
-    } catch (IOException ex) {
-        JOptionPane.showMessageDialog(this, "Error al cargar los datos del archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-        ex.printStackTrace();
-    }
-
-    // Establecer el modelo de lista en el JList
-    lstData.setModel(listModel);
+        // Establecer el modelo de lista en el JList
+        lstData.setModel(listModel);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         DefaultListModel<String> listModel = (DefaultListModel<String>) lstData.getModel();
-    
-    int selectedIndex = lstData.getSelectedIndex();
-    
-    if (selectedIndex != -1) {
-        int confirmation = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        
-        if (confirmation == JOptionPane.YES_OPTION) {
-            // Eliminar el elemento seleccionado del modelo de lista
-            listModel.remove(selectedIndex);
-            
-            // Actualizar el archivo "Transporte.txt" con los elementos restantes
-            try {
-                FileWriter fileWriter = new FileWriter("Transporte.txt");
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                
-                for (int i = 0; i < listModel.getSize(); i++) {
-                    bufferedWriter.write(listModel.getElementAt(i));
-                    bufferedWriter.newLine();
+
+        int selectedIndex = lstData.getSelectedIndex();
+
+        if (selectedIndex != -1) {
+            int confirmation = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+            if (confirmation == JOptionPane.YES_OPTION) {
+                // Eliminar el elemento seleccionado del modelo de lista
+                listModel.remove(selectedIndex);
+
+                // Actualizar el archivo "Transporte.txt" con los elementos restantes
+                try {
+                    FileWriter fileWriter = new FileWriter("Transporte.txt");
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+                    for (int i = 0; i < listModel.getSize(); i++) {
+                        bufferedWriter.write(listModel.getElementAt(i));
+                        bufferedWriter.newLine();
+                    }
+
+                    bufferedWriter.close();
+                    fileWriter.close();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Error al eliminar el registro del archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    ex.printStackTrace();
                 }
-                
-                bufferedWriter.close();
-                fileWriter.close();
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error al eliminar el registro del archivo.", "Error", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
             }
         }
-    }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
