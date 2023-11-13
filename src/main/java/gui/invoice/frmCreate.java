@@ -6,7 +6,9 @@ package gui.invoice;
 
 import classes.Invoice;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -160,13 +162,27 @@ public class frmCreate extends javax.swing.JFrame {
             Invoice newInvoice = new Invoice(transportCode, clientName, clientId, date, amount);
 
             // Guardar la factura en el archivo "Alquiler.txt"
-            // saveInvoice(newInvoice);
+            saveInvoice(newInvoice);
             System.out.println("Factura creada correctamente.");
         } catch (ParseException | NumberFormatException e) {
             // Manejar errores de formato de fecha o número
             System.err.println("Error al crear la factura: " + e.getMessage());
         }
     }//GEN-LAST:event_btnCreateInvoiceActionPerformed
+
+    private void saveInvoice(Invoice invoice) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Alquiler.txt", true))) {
+            // Formato: Código, Nombre del Cliente, ID del Cliente, Fecha, Monto
+            String line = String.format("%s, %s, %s, %s, %.2f%n",
+                    invoice.getTransportCode(), invoice.getCustomerName(), invoice.getCustomerID(),
+                    new SimpleDateFormat("dd/MM/yyyy").format(invoice.getDate()), invoice.getAmount());
+
+            writer.write(line);
+            System.out.println("Factura guardada correctamente.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar la factura en el archivo Alquiler.txt: " + e.getMessage());
+        }
+    }
 
     private boolean transportExists(String transportCode) {
         try (BufferedReader reader = new BufferedReader(new FileReader("Transporte.txt"))) {
