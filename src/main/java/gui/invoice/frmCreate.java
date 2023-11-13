@@ -171,13 +171,16 @@ public class frmCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateInvoiceActionPerformed
 
     private void saveInvoice(Invoice invoice) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Alquiler.txt", true))) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Alquiler.txt", true));
+
             // Formato: Código, Nombre del Cliente, ID del Cliente, Fecha, Monto
             String line = String.format("%s, %s, %s, %s, %.2f%n",
                     invoice.getTransportCode(), invoice.getCustomerName(), invoice.getCustomerID(),
                     new SimpleDateFormat("dd/MM/yyyy").format(invoice.getDate()), invoice.getAmount());
 
             writer.write(line);
+            writer.close();
             System.out.println("Factura guardada correctamente.");
         } catch (IOException e) {
             System.err.println("Error al guardar la factura en el archivo Alquiler.txt: " + e.getMessage());
@@ -185,7 +188,8 @@ public class frmCreate extends javax.swing.JFrame {
     }
 
     private boolean transportExists(String transportCode) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Transporte.txt"))) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("Transporte.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 // Analizar la línea para extraer el código del transporte
