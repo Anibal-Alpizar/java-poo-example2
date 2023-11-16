@@ -6,6 +6,10 @@ package gui;
 
 import gui.invoice.frmCreate;
 import gui.transport.frmPrincipalTransport;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -90,11 +94,35 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Verificar si hay al menos un transporte en el archivo "Transporte.txt"
+        if (!hasTransports()) {
+            JOptionPane.showMessageDialog(this, "No hay transportes disponibles. No se puede abrir la ventana de creación.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Abrir la ventana de creación
         frmCreate frmCreate = new frmCreate();
         frmCreate.setVisible(true);
         frmCreate.setLocationRelativeTo(null);
         this.dispose();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private boolean hasTransports() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Transporte.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().startsWith("Código:")) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al leer el archivo Transporte.txt: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments
