@@ -6,6 +6,8 @@ package gui.invoice;
 
 import classes.Bicycle;
 import classes.Invoice;
+import classes.Scooter;
+import classes.Skates;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -204,14 +206,15 @@ public class frmCreate extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnCreateInvoiceActionPerformed
+
     private double calculateAmount(String vehicleType, int distance) {
         switch (vehicleType) {
             case "Bicycle":
-                return new Bicycle(txtCodeTranport.getText(),"Bicycle" ,(0)).calculateAmount(distance);
+                return new Bicycle(txtCodeTranport.getText(), "Bicycle", (0)).calculateAmount(distance);
             case "Scooter":
-                //return new Scooter().calculateAmount(distance);
+                return new Scooter(txtCodeTranport.getText(), "Scooter", ("")).calculateAmount(distance);
             case "Skates":
-                //return new Skates().calculateAmount(distance);
+                return new Skates(txtCodeTranport.getText(), "Skates", (0)).calculateAmount(distance);
             default:
                 System.out.println("Tipo de vehículo no reconocido.");
                 return 0.0;

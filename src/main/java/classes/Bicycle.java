@@ -16,6 +16,7 @@ public class Bicycle extends Transport {
         super(code, type, 3000);
         this.gearCount = gearCount;
     }
+   
 
     public int getGearCount() {
         return gearCount;
@@ -30,13 +31,13 @@ public class Bicycle extends Transport {
         double porcentaje = 0.0;
 
         if (distancia >= 0 && distancia <= 1000) {
-            porcentaje = 0.4;
+            porcentaje = 0.5;
         } else if (distancia > 1000 && distancia <= 2000) {
-            porcentaje = 0.3;
+            porcentaje = 0.35;
         } else if (distancia > 2000 && distancia <= 3000) {
-            porcentaje = 0.25;
+            porcentaje = 0.20;
         } else {
-            porcentaje = 0.15;
+            porcentaje = 0.10;
         }
 
         double monto = getBaseRate() * porcentaje;
