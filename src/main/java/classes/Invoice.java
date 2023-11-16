@@ -64,4 +64,6 @@ public class Invoice {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+    
+    
 }

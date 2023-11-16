@@ -24,22 +24,21 @@ public class Bicycle extends Transport {
     public void setGearCount(int gearCount) {
         this.gearCount = gearCount;
     }
-
-    @Override
+    
+     @Override
     public double calculateAmount(int distancia) {
         double porcentaje = 0.0;
 
         if (distancia >= 0 && distancia <= 1000) {
-            porcentaje = 0.5;
+            porcentaje = 0.4;
         } else if (distancia > 1000 && distancia <= 2000) {
-            porcentaje = 0.35;
+            porcentaje = 0.3;
         } else if (distancia > 2000 && distancia <= 3000) {
-            porcentaje = 0.20;
+            porcentaje = 0.25;
         } else {
-            porcentaje = 0.10;
+            porcentaje = 0.15;
         }
 
-        // Realizar el cálculo basado en la tarifa base y el porcentaje
         double monto = getBaseRate() * porcentaje;
         return monto;
     }
@@ -48,4 +47,6 @@ public class Bicycle extends Transport {
     public String toString() {
         return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + " gearCount: " + getGearCount();
     }
+
+
 }

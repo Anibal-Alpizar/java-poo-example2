@@ -4,6 +4,7 @@
  */
 package gui.invoice;
 
+import classes.Bicycle;
 import classes.Invoice;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -87,85 +88,79 @@ public class frmCreate extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCreateInvoice)
-                .addGap(391, 391, 391))
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCodeTranport, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAmoutnToCancel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75)
-                                .addComponent(jLabel5)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(92, 92, 92)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(txtDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnCreateInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAmoutnToCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtCodeTranport, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                                            .addComponent(txtDistance)))
+                                    .addGap(63, 63, 63)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodeTranport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodeTranport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
+                    .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(24, 24, 24)
+                    .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtAmoutnToCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
+                    .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(btnCreateInvoice)
-                .addGap(126, 126, 126))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(btnCreateInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
 
         pack();
@@ -173,36 +168,71 @@ public class frmCreate extends javax.swing.JFrame {
 
     private void btnCreateInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateInvoiceActionPerformed
 
-        String transportCode = txtCodeTranport.getText();
-        String day = txtDay.getText();
-        String month = txtMonth.getText();
-        String year = txtYear.getText();
-        String amountToCancel = txtAmoutnToCancel.getText();
-        String clientName = txtClientName.getText();
-        String clientId = txtClientId.getText();
-
-        // Verificar si el vehículo existe en el archivo "Transporte.txt"
-        if (!transportExists(transportCode)) {
-            // El vehículo no existe, mostrar un mensaje o manejar la situación de alguna manera
-            System.out.println("El vehículo no existe. No se puede crear la factura.");
-            return;
-        }
-
-        // Crear una instancia de la clase Invoice y establecer sus valores
         try {
-            Date date = new SimpleDateFormat("dd/MM/yyyy").parse(day + "/" + month + "/" + year);
-            double amount = Double.parseDouble(amountToCancel);
+            String transportCode = txtCodeTranport.getText();
+            String day = txtDay.getText();
+            String month = txtMonth.getText();
+            String year = txtYear.getText();
+            String amountToCancel = txtAmoutnToCancel.getText();
+            String clientName = txtClientName.getText();
+            String clientId = txtClientId.getText();
+            String distance = txtDistance.getText();
 
-            Invoice newInvoice = new Invoice(transportCode, clientName, clientId, date, amount);
+            boolean transportCodeExists = checkTransportCodeExists(transportCode);
 
-            // Guardar la factura en el archivo "Alquiler.txt"
-            saveInvoice(newInvoice);
-            System.out.println("Factura creada correctamente.");
-        } catch (ParseException | NumberFormatException e) {
-            // Manejar errores de formato de fecha o número
-            System.err.println("Error al crear la factura: " + e.getMessage());
+            txtDistance.setEnabled(transportCodeExists);
+
+            String vehicleType = transportExists(transportCode);
+
+            if (vehicleType != null && !distance.isEmpty()) {
+                int distanceValue = Integer.parseInt(distance);
+                double amount = calculateAmount(vehicleType, distanceValue);
+
+                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(day + "/" + month + "/" + year);
+                double amountToCancelValue = Double.parseDouble(amountToCancel);
+
+                Invoice newInvoice = new Invoice(transportCode, clientName, clientId, date, amountToCancelValue);
+
+                saveInvoice(newInvoice);
+
+                System.out.println("Factura creada correctamente.");
+                System.out.println("Monto calculado: " + amount);
+            }
+        } catch (Exception e) {
+            //handleException("Error al crear la factura", e);
         }
+
+
     }//GEN-LAST:event_btnCreateInvoiceActionPerformed
+    private double calculateAmount(String vehicleType, int distance) {
+        switch (vehicleType) {
+            case "Bicycle":
+                return new Bicycle(txtCodeTranport.getText(),"Bicycle" ,(0)).calculateAmount(distance);
+            case "Scooter":
+                //return new Scooter().calculateAmount(distance);
+            case "Skates":
+                //return new Skates().calculateAmount(distance);
+            default:
+                System.out.println("Tipo de vehículo no reconocido.");
+                return 0.0;
+        }
+    }
+
+    private boolean checkTransportCodeExists(String code) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Transporte.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Suponiendo que cada línea contiene un código de transporte
+                if (line.trim().equals(code)) {
+                    return true; // El código existe
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo de errores, puedes personalizarlo según tus necesidades
+        }
+
+        return false; // El código no existe
+    }
 
     private void saveInvoice(Invoice invoice) {
         try {
@@ -221,27 +251,39 @@ public class frmCreate extends javax.swing.JFrame {
         }
     }
 
-    private boolean transportExists(String transportCode) {
+    private String transportExists(String transportCode) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("Transporte.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
-                // Analizar la línea para extraer el código del transporte
+                // Analizar la línea para extraer el código y el tipo del transporte
                 String[] parts = line.split(",");
+                String code = "";
+                String type = "";
+
                 for (String part : parts) {
-                    if (part.trim().startsWith("Código:") && part.contains(transportCode)) {
-                        JOptionPane.showMessageDialog(this, "El vehículo existe.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                        return true; // El vehículo existe
+                    String trimmedPart = part.trim();
+                    if (trimmedPart.startsWith("Código:")) {
+                        code = trimmedPart.substring(trimmedPart.indexOf(" ") + 1);
+                    } else if (trimmedPart.startsWith("Tipo:")) {
+                        type = trimmedPart.substring(trimmedPart.indexOf(" ") + 1);
                     }
                 }
+
+                if (code.equals(transportCode)) {
+                    JOptionPane.showMessageDialog(this, "El vehículo existe.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println(code + type);
+                    return type; // El vehículo existe, devuelve el tipo
+                }
             }
+            reader.close();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error al leer el archivo Transporte.txt: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         // El vehículo no existe o hubo un error al leer el archivo
         JOptionPane.showMessageDialog(this, "El vehículo no existe.", "Error", JOptionPane.ERROR_MESSAGE);
-        return false;
+        return null;
     }
 
     /**
