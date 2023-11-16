@@ -1,0 +1,1 @@
+Código: 01, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 90

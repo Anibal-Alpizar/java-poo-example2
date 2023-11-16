@@ -44,6 +44,8 @@ public class Skates extends Transport {
         return monto;
     }
 
+    
+
     @Override
     public String toString() {
         return "Código: " + getCode() + ", Tipo: " + getType() + ", Tarifa Base: " + getBaseRate() + ", cantidad de ruedas: " + getWheelCount();

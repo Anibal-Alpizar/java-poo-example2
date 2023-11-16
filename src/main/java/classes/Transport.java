@@ -45,5 +45,5 @@ public abstract class Transport implements Calculable {
     public void setBaseRate(int baseRate) {
         this.baseRate = baseRate;
     }
-    
+
 }
