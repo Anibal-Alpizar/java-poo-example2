@@ -1,1 +1,6 @@
 Código: 01, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 900
+Código: 02, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 90
+Código: 03, Tipo: Bicycle, Tarifa Base: 3000 gearCount: 90
+Código: 04, Tipo: Scooter, Tarifa Base: ji
+Código: 08, Tipo: Skates, Tarifa Base: 1500, cantidad de ruedas: 90
+Código: 8989, Tipo: Skates, Tarifa Base: 1500, cantidad de ruedas: 90
