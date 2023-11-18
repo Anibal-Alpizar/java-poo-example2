@@ -88,29 +88,29 @@ public class frmGetOne extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String searchCode = txtSearchByCode.getText();
 
-    if (searchCode.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Ingrese un código para buscar.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+        if (searchCode.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese un código para buscar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
-        StringBuilder result = new StringBuilder();
-        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
+            StringBuilder result = new StringBuilder();
+            String line;
 
-        while ((line = br.readLine()) != null) {
-            if (line.startsWith(searchCode + ",")) {
-                result.append(line).append("\n");
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith(searchCode + ",")) {
+                    result.append(line).append("\n");
+                }
             }
-        }
 
-        if (result.length() == 0) {
-            JOptionPane.showMessageDialog(this, "No se encontraron resultados para el código ingresado.", "Sin Resultados", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            txtShowByCode.setText(result.toString());
+            if (result.length() == 0) {
+                JOptionPane.showMessageDialog(this, "No se encontraron resultados para el código ingresado.", "Sin Resultados", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                txtShowByCode.setText(result.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejar errores según tus necesidades
         }
-    } catch (IOException e) {
-        e.printStackTrace(); // Manejar errores según tus necesidades
-    }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**

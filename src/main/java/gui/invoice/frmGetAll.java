@@ -65,18 +65,18 @@ public class frmGetAll extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
-        StringBuilder content = new StringBuilder();
-        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
+            StringBuilder content = new StringBuilder();
+            String line;
 
-        while ((line = br.readLine()) != null) {
-            content.append(line).append("\n");
+            while ((line = br.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+
+            txtShowAll.setText(content.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        txtShowAll.setText(content.toString());
-    } catch (IOException e) {
-        e.printStackTrace(); // Manejar errores según tus necesidades
-    }
     }//GEN-LAST:event_formWindowOpened
 
     /**

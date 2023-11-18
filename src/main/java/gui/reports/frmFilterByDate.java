@@ -93,40 +93,40 @@ public class frmFilterByDate extends javax.swing.JFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         String searchDateInput = txtSearchDate.getText();
 
-    if (searchDateInput.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Ingrese una fecha para filtrar.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+        if (searchDateInput.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese una fecha para filtrar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    try {
-        SimpleDateFormat sdfInput = new SimpleDateFormat("dd/MM/yyyy");
-        Date searchDate = sdfInput.parse(searchDateInput);
+        try {
+            SimpleDateFormat sdfInput = new SimpleDateFormat("dd/MM/yyyy");
+            Date searchDate = sdfInput.parse(searchDateInput);
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
-            StringBuilder result = new StringBuilder();
-            String line;
+            try (BufferedReader br = new BufferedReader(new FileReader("Alquiler.txt"))) {
+                StringBuilder result = new StringBuilder();
+                String line;
 
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                String dateString = parts[3].trim(); // Asumiendo que la fecha está en la cuarta posición
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    String dateString = parts[3].trim(); // Asumiendo que la fecha está en la cuarta posición
 
-                SimpleDateFormat sdfFile = new SimpleDateFormat("dd/MM/yyyy");
-                Date fileDate = sdfFile.parse(dateString);
+                    SimpleDateFormat sdfFile = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fileDate = sdfFile.parse(dateString);
 
-                if (searchDate.equals(fileDate)) {
-                    result.append(line).append("\n");
+                    if (searchDate.equals(fileDate)) {
+                        result.append(line).append("\n");
+                    }
+                }
+
+                if (result.length() == 0) {
+                    JOptionPane.showMessageDialog(this, "No se encontraron resultados para la fecha ingresada.", "Sin Resultados", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    txtShowFiltered.setText(result.toString());
                 }
             }
-
-            if (result.length() == 0) {
-                JOptionPane.showMessageDialog(this, "No se encontraron resultados para la fecha ingresada.", "Sin Resultados", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                txtShowFiltered.setText(result.toString());
-            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Manejar errores según tus necesidades
         }
-    } catch (Exception e) {
-        e.printStackTrace(); // Manejar errores según tus necesidades
-    }
     }//GEN-LAST:event_btnFilterActionPerformed
 
     /**

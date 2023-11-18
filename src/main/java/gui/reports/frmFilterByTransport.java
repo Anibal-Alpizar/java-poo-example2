@@ -148,7 +148,7 @@ public class frmFilterByTransport extends javax.swing.JFrame {
                 txtShowAll.setText(content.toString());
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Manejar errores según tus necesidades
+            e.printStackTrace();
         }
     }
 
